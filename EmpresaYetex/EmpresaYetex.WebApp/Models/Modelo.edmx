@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EmpresaYetexModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Nit_Cliente" />
+          </Key>
+          <Property Name="Nit_Cliente" Type="bigint" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="50" />
+          <Property Name="Contacto" Type="varchar" MaxLength="100" />
+          <Property Name="Mail" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="Id_Color" />
+          </Key>
+          <Property Name="Id_Color" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion_Color" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Costo_Producto">
+          <Key>
+            <PropertyRef Name="Id_Costo_Producto" />
+          </Key>
+          <Property Name="Id_Costo_Producto" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Producto" Type="int" Nullable="false" />
+          <Property Name="CostoxUnidad" Type="money" Nullable="false" />
+          <Property Name="Fecha_Inicial" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_Final" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Detalle_Pedido">
+          <Key>
+            <PropertyRef Name="Id_Detalle_Pedido" />
+          </Key>
+          <Property Name="Id_Detalle_Pedido" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Orden_Pedido" Type="bigint" Nullable="false" />
+          <Property Name="Id_Producto" Type="int" Nullable="false" />
+          <Property Name="Id_Color" Type="smallint" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Id_Logotipo" Type="int" Nullable="false" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="2000" />
+          <Property Name="Valor_Venta_Unitario" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Id_Estado" />
+          </Key>
+          <Property Name="Id_Estado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha_Estado" Type="datetime" Nullable="false" />
+          <Property Name="Orden_Pedido" Type="bigint" Nullable="false" />
+          <Property Name="Descripcion_Estado" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Forma_Pago">
+          <Key>
+            <PropertyRef Name="Id_Forma_Pago" />
+          </Key>
+          <Property Name="Id_Forma_Pago" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha_Pago" Type="datetime" Nullable="false" />
+          <Property Name="Orden_Pedido" Type="bigint" Nullable="false" />
+          <Property Name="Descripcion_Forma_Pago" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Valor" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logotipo">
+          <Key>
+            <PropertyRef Name="Id_Logotipo" />
+          </Key>
+          <Property Name="Id_Logotipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url_Imagen" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Fecha_Carga" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="Orden_Pedido" />
+          </Key>
+          <Property Name="Orden_Pedido" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha_Pedido" Type="datetime" Nullable="false" />
+          <Property Name="Nit_Cliente" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prenda">
+          <Key>
+            <PropertyRef Name="Id_Prenda" />
+          </Key>
+          <Property Name="Id_Prenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion_Prenda" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Prenda" Type="int" Nullable="false" />
+          <Property Name="Id_Tipo_Prenda" Type="int" Nullable="false" />
+          <Property Name="Talla" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CostoxUnidad" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Prenda">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Prenda" />
+          </Key>
+          <Property Name="Id_Tipo_Prenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion_Tipo_Prenda" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Usuario">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Usuario" />
+          </Key>
+          <Property Name="Id_Tipo_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion_Tipo_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="bigint" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_Tipo_Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CostoProducto_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Costo_Producto" Type="Self.Costo_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Costo_Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id_Color" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="Id_Color" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Logotipo">
+          <End Role="Logotipo" Type="Self.Logotipo" Multiplicity="1" />
+          <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logotipo">
+              <PropertyRef Name="Id_Logotipo" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="Id_Logotipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Orden_Pedido" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="Orden_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estado_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Orden_Pedido" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="Orden_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormaPago_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Forma_Pago" Type="Self.Forma_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Orden_Pedido" />
+            </Principal>
+            <Dependent Role="Forma_Pago">
+              <PropertyRef Name="Orden_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Nit_Cliente" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="Nit_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_Prenda">
+          <End Role="Prenda" Type="Self.Prenda" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prenda">
+              <PropertyRef Name="Id_Prenda" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Id_Prenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_TipoPrenda">
+          <End Role="Tipo_Prenda" Type="Self.Tipo_Prenda" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Prenda">
+              <PropertyRef Name="Id_Tipo_Prenda" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Id_Tipo_Prenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_TipoUsuario">
+          <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Usuario">
+              <PropertyRef Name="Id_Tipo_Usuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_Tipo_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmpresaYetexModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Costo_Producto" EntityType="Self.Costo_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detalle_Pedido" EntityType="Self.Detalle_Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forma_Pago" EntityType="Self.Forma_Pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logotipo" EntityType="Self.Logotipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prenda" EntityType="Self.Prenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Prenda" EntityType="Self.Tipo_Prenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CostoProducto_Producto" Association="Self.FK_CostoProducto_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Costo_Producto" EntitySet="Costo_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Color" Association="Self.FK_DetallePedido_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Logotipo" Association="Self.FK_DetallePedido_Logotipo">
+            <End Role="Logotipo" EntitySet="Logotipo" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Pedido" Association="Self.FK_DetallePedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Producto" Association="Self.FK_DetallePedido_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estado_Pedido" Association="Self.FK_Estado_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Estado" EntitySet="Estado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormaPago_Pedido" Association="Self.FK_FormaPago_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Forma_Pago" EntitySet="Forma_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Cliente" Association="Self.FK_Pedido_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Prenda" Association="Self.FK_Producto_Prenda">
+            <End Role="Prenda" EntitySet="Prenda" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_TipoPrenda" Association="Self.FK_Producto_TipoPrenda">
+            <End Role="Tipo_Prenda" EntitySet="Tipo_Prenda" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_TipoUsuario" Association="Self.FK_Usuario_TipoUsuario">
+            <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmpresaYetexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Nit_Cliente" />
+          </Key>
+          <Property Name="Nit_Cliente" Type="Int64" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Cliente" FromRole="Cliente" ToRole="Pedido" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="Id_Color" />
+          </Key>
+          <Property Name="Id_Color" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion_Color" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Detalle_Pedido" Relationship="Self.FK_DetallePedido_Color" FromRole="Color" ToRole="Detalle_Pedido" />
+        </EntityType>
+        <EntityType Name="Costo_Producto">
+          <Key>
+            <PropertyRef Name="Id_Costo_Producto" />
+          </Key>
+          <Property Name="Id_Costo_Producto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+          <Property Name="CostoxUnidad" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Fecha_Inicial" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fecha_Final" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_CostoProducto_Producto" FromRole="Costo_Producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Detalle_Pedido">
+          <Key>
+            <PropertyRef Name="Id_Detalle_Pedido" />
+          </Key>
+          <Property Name="Id_Detalle_Pedido" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Orden_Pedido" Type="Int64" Nullable="false" />
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Id_Color" Type="Int16" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Id_Logotipo" Type="Int32" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Valor_Venta_Unitario" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_DetallePedido_Color" FromRole="Detalle_Pedido" ToRole="Color" />
+          <NavigationProperty Name="Logotipo" Relationship="Self.FK_DetallePedido_Logotipo" FromRole="Detalle_Pedido" ToRole="Logotipo" />
+          <NavigationProperty Name="Pedido" Relationship="Self.FK_DetallePedido_Pedido" FromRole="Detalle_Pedido" ToRole="Pedido" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_DetallePedido_Producto" FromRole="Detalle_Pedido" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Id_Estado" />
+          </Key>
+          <Property Name="Id_Estado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha_Estado" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Orden_Pedido" Type="Int64" Nullable="false" />
+          <Property Name="Descripcion_Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Pedido" Relationship="Self.FK_Estado_Pedido" FromRole="Estado" ToRole="Pedido" />
+        </EntityType>
+        <EntityType Name="Forma_Pago">
+          <Key>
+            <PropertyRef Name="Id_Forma_Pago" />
+          </Key>
+          <Property Name="Id_Forma_Pago" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha_Pago" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Orden_Pedido" Type="Int64" Nullable="false" />
+          <Property Name="Descripcion_Forma_Pago" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Pedido" Relationship="Self.FK_FormaPago_Pedido" FromRole="Forma_Pago" ToRole="Pedido" />
+        </EntityType>
+        <EntityType Name="Logotipo">
+          <Key>
+            <PropertyRef Name="Id_Logotipo" />
+          </Key>
+          <Property Name="Id_Logotipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url_Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Carga" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Detalle_Pedido" Relationship="Self.FK_DetallePedido_Logotipo" FromRole="Logotipo" ToRole="Detalle_Pedido" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="Orden_Pedido" />
+          </Key>
+          <Property Name="Orden_Pedido" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha_Pedido" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Nit_Cliente" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_Pedido_Cliente" FromRole="Pedido" ToRole="Cliente" />
+          <NavigationProperty Name="Detalle_Pedido" Relationship="Self.FK_DetallePedido_Pedido" FromRole="Pedido" ToRole="Detalle_Pedido" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK_Estado_Pedido" FromRole="Pedido" ToRole="Estado" />
+          <NavigationProperty Name="Forma_Pago" Relationship="Self.FK_FormaPago_Pedido" FromRole="Pedido" ToRole="Forma_Pago" />
+        </EntityType>
+        <EntityType Name="Prenda">
+          <Key>
+            <PropertyRef Name="Id_Prenda" />
+          </Key>
+          <Property Name="Id_Prenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion_Prenda" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_Prenda" FromRole="Prenda" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Prenda" Type="Int32" Nullable="false" />
+          <Property Name="Id_Tipo_Prenda" Type="Int32" Nullable="false" />
+          <Property Name="Talla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CostoxUnidad" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Costo_Producto" Relationship="Self.FK_CostoProducto_Producto" FromRole="Producto" ToRole="Costo_Producto" />
+          <NavigationProperty Name="Detalle_Pedido" Relationship="Self.FK_DetallePedido_Producto" FromRole="Producto" ToRole="Detalle_Pedido" />
+          <NavigationProperty Name="Prenda" Relationship="Self.FK_Producto_Prenda" FromRole="Producto" ToRole="Prenda" />
+          <NavigationProperty Name="Tipo_Prenda" Relationship="Self.FK_Producto_TipoPrenda" FromRole="Producto" ToRole="Tipo_Prenda" />
+        </EntityType>
+        <EntityType Name="Tipo_Prenda">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Prenda" />
+          </Key>
+          <Property Name="Id_Tipo_Prenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion_Tipo_Prenda" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_TipoPrenda" FromRole="Tipo_Prenda" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Tipo_Usuario">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Usuario" />
+          </Key>
+          <Property Name="Id_Tipo_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion_Tipo_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="Tipo_Usuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="Int64" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Tipo_Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tipo_Usuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="Usuario" ToRole="Tipo_Usuario" />
+        </EntityType>
+        <Association Name="FK_Pedido_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Nit_Cliente" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="Nit_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Color">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id_Color" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="Id_Color" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostoProducto_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Costo_Producto" Type="Self.Costo_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Costo_Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Logotipo">
+          <End Role="Logotipo" Type="Self.Logotipo" Multiplicity="1" />
+          <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logotipo">
+              <PropertyRef Name="Id_Logotipo" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="Id_Logotipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Orden_Pedido" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="Orden_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id_Producto" />
+            </Principal>
+            <Dependent Role="Detalle_Pedido">
+              <PropertyRef Name="Id_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estado_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Orden_Pedido" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="Orden_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormaPago_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="Forma_Pago" Type="Self.Forma_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Orden_Pedido" />
+            </Principal>
+            <Dependent Role="Forma_Pago">
+              <PropertyRef Name="Orden_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_Prenda">
+          <End Role="Prenda" Type="Self.Prenda" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prenda">
+              <PropertyRef Name="Id_Prenda" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Id_Prenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_TipoPrenda">
+          <End Role="Tipo_Prenda" Type="Self.Tipo_Prenda" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Prenda">
+              <PropertyRef Name="Id_Tipo_Prenda" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Id_Tipo_Prenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_TipoUsuario">
+          <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Usuario">
+              <PropertyRef Name="Id_Tipo_Usuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_Tipo_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmpresaYetexModelFactory" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Color" EntityType="Self.Color" />
+          <EntitySet Name="Costo_Producto" EntityType="Self.Costo_Producto" />
+          <EntitySet Name="Detalle_Pedido" EntityType="Self.Detalle_Pedido" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" />
+          <EntitySet Name="Forma_Pago" EntityType="Self.Forma_Pago" />
+          <EntitySet Name="Logotipo" EntityType="Self.Logotipo" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" />
+          <EntitySet Name="Prenda" EntityType="Self.Prenda" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Tipo_Prenda" EntityType="Self.Tipo_Prenda" />
+          <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Pedido_Cliente" Association="Self.FK_Pedido_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Color" Association="Self.FK_DetallePedido_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CostoProducto_Producto" Association="Self.FK_CostoProducto_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Costo_Producto" EntitySet="Costo_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Logotipo" Association="Self.FK_DetallePedido_Logotipo">
+            <End Role="Logotipo" EntitySet="Logotipo" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Pedido" Association="Self.FK_DetallePedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Producto" Association="Self.FK_DetallePedido_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estado_Pedido" Association="Self.FK_Estado_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Estado" EntitySet="Estado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormaPago_Pedido" Association="Self.FK_FormaPago_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Forma_Pago" EntitySet="Forma_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Prenda" Association="Self.FK_Producto_Prenda">
+            <End Role="Prenda" EntitySet="Prenda" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_TipoPrenda" Association="Self.FK_Producto_TipoPrenda">
+            <End Role="Tipo_Prenda" EntitySet="Tipo_Prenda" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_TipoUsuario" Association="Self.FK_Usuario_TipoUsuario">
+            <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmpresaYetexModelStoreContainer" CdmEntityContainer="EmpresaYetexModelFactory">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Nit_Cliente" ColumnName="Nit_Cliente" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Color">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="Id_Color" ColumnName="Id_Color" />
+                <ScalarProperty Name="Descripcion_Color" ColumnName="Descripcion_Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Costo_Producto">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Costo_Producto">
+              <MappingFragment StoreEntitySet="Costo_Producto">
+                <ScalarProperty Name="Id_Costo_Producto" ColumnName="Id_Costo_Producto" />
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="CostoxUnidad" ColumnName="CostoxUnidad" />
+                <ScalarProperty Name="Fecha_Inicial" ColumnName="Fecha_Inicial" />
+                <ScalarProperty Name="Fecha_Final" ColumnName="Fecha_Final" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalle_Pedido">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Detalle_Pedido">
+              <MappingFragment StoreEntitySet="Detalle_Pedido">
+                <ScalarProperty Name="Id_Detalle_Pedido" ColumnName="Id_Detalle_Pedido" />
+                <ScalarProperty Name="Orden_Pedido" ColumnName="Orden_Pedido" />
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Id_Color" ColumnName="Id_Color" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Id_Logotipo" ColumnName="Id_Logotipo" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Valor_Venta_Unitario" ColumnName="Valor_Venta_Unitario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Fecha_Estado" ColumnName="Fecha_Estado" />
+                <ScalarProperty Name="Orden_Pedido" ColumnName="Orden_Pedido" />
+                <ScalarProperty Name="Descripcion_Estado" ColumnName="Descripcion_Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forma_Pago">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Forma_Pago">
+              <MappingFragment StoreEntitySet="Forma_Pago">
+                <ScalarProperty Name="Id_Forma_Pago" ColumnName="Id_Forma_Pago" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="Orden_Pedido" ColumnName="Orden_Pedido" />
+                <ScalarProperty Name="Descripcion_Forma_Pago" ColumnName="Descripcion_Forma_Pago" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logotipo">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Logotipo">
+              <MappingFragment StoreEntitySet="Logotipo">
+                <ScalarProperty Name="Id_Logotipo" ColumnName="Id_Logotipo" />
+                <ScalarProperty Name="Url_Imagen" ColumnName="Url_Imagen" />
+                <ScalarProperty Name="Fecha_Carga" ColumnName="Fecha_Carga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedido">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Pedido">
+              <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="Orden_Pedido" ColumnName="Orden_Pedido" />
+                <ScalarProperty Name="Fecha_Pedido" ColumnName="Fecha_Pedido" />
+                <ScalarProperty Name="Nit_Cliente" ColumnName="Nit_Cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prenda">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Prenda">
+              <MappingFragment StoreEntitySet="Prenda">
+                <ScalarProperty Name="Id_Prenda" ColumnName="Id_Prenda" />
+                <ScalarProperty Name="Descripcion_Prenda" ColumnName="Descripcion_Prenda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Id_Prenda" ColumnName="Id_Prenda" />
+                <ScalarProperty Name="Id_Tipo_Prenda" ColumnName="Id_Tipo_Prenda" />
+                <ScalarProperty Name="Talla" ColumnName="Talla" />
+                <ScalarProperty Name="CostoxUnidad" ColumnName="CostoxUnidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Prenda">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Tipo_Prenda">
+              <MappingFragment StoreEntitySet="Tipo_Prenda">
+                <ScalarProperty Name="Id_Tipo_Prenda" ColumnName="Id_Tipo_Prenda" />
+                <ScalarProperty Name="Descripcion_Tipo_Prenda" ColumnName="Descripcion_Tipo_Prenda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Usuario">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Tipo_Usuario">
+              <MappingFragment StoreEntitySet="Tipo_Usuario">
+                <ScalarProperty Name="Id_Tipo_Usuario" ColumnName="Id_Tipo_Usuario" />
+                <ScalarProperty Name="Descripcion_Tipo_Usuario" ColumnName="Descripcion_Tipo_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="EmpresaYetexModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id_Tipo_Usuario" ColumnName="Id_Tipo_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

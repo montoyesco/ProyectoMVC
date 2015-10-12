@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48dc6f66719946b1acc372cb80d1143e" Name="Diagram1">
+        <EntityTypeShape EntityType="EmpresaYetexModel.Cliente" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Color" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Costo_Producto" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Detalle_Pedido" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Estado" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Forma_Pago" Width="1.5" PointX="8.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Logotipo" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Pedido" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Prenda" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Producto" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Tipo_Prenda" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Tipo_Usuario" Width="1.5" PointX="8.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmpresaYetexModel.Usuario" Width="1.5" PointX="11" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_Pedido_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_DetallePedido_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_CostoProducto_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_DetallePedido_Logotipo" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_DetallePedido_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_DetallePedido_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_Estado_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_FormaPago_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_Producto_Prenda" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_Producto_TipoPrenda" ManuallyRouted="false" />
+        <AssociationConnector Association="EmpresaYetexModel.FK_Usuario_TipoUsuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

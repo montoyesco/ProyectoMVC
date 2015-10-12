@@ -1,0 +1,872 @@
+﻿@charset 'UTF-8';
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600');
+@import url('font-awesome.min.css');
+
+/*
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	body
+	{
+		background: #f0f4f1;
+		color: #5b5b5b;
+		text-align: center;
+		margin: 20px 0px 20px 20px;
+		font-size: 15pt;
+		font-family: sans-serif;
+		font-weight: 300;
+	}
+
+
+	h1,h2,h3,h4,h5,h6
+	{
+		font-weight: 400;
+		color: #483949;
+	}
+	
+		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+		{
+			color: inherit;
+			text-decoration: none;
+			border-bottom-color: transparent;
+		}
+		
+		h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong
+		{
+			font-weight: 600;
+		}
+
+	h2
+	{
+		font-size: 2.85em;
+	}
+	
+	h3
+	{
+		font-size: 1.25em;
+	}
+	
+	h4
+	{
+		font-size: 1em;
+		margin: 0 0 0.25em 0;
+	}
+	
+	strong, b
+	{
+		font-weight: 400;
+		color: #483949;
+	}
+	
+	em, i
+	{
+		font-style: italic;
+	}
+
+	a
+	{
+		color: inherit;
+		border-bottom: solid 1px rgba(128,128,128,0.15);
+		text-decoration: none;
+		-moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		-o-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+	}
+	
+		a:hover
+		{
+			color: #ef8376;
+			border-bottom-color: transparent;
+		}
+
+	sub
+	{
+		position: relative;
+		top: 0.5em;
+		font-size: 0.8em;
+	}
+	
+	sup
+	{
+		position: relative;
+		top: -0.5em;
+		font-size: 0.8em;
+	}
+	
+	blockquote
+	{
+		border-left: solid 0.5em #ddd;
+		padding: 1em 0 1em 2em;
+		font-style: italic;
+	}
+	
+	p
+	{
+		text-align: justify;
+	}
+
+	hr
+	{
+		position: relative;
+		display: block;
+		border: 0;
+		top: 4.5em;
+		margin-bottom: 9em;
+
+		height: 6px;
+		border-top: solid 1px rgba(128,128,128,0.2);
+		border-bottom: solid 1px rgba(128,128,128,0.2);
+	}
+	
+		hr:before,
+		hr:after
+		{
+			content: '';
+			position: absolute;
+			top: -8px;
+			display: block;
+			width: 1px;
+			height: 21px;
+			background: rgba(128,128,128,0.2);			
+		}
+
+		hr:before
+		{
+			left: -1px;
+		}
+
+		hr:after
+		{
+			right: -1px;
+		}
+
+				
+	/* Form */
+
+		form fieldset
+		{
+			border: 1px solid #5b5b5b;
+		}
+
+		form fieldset legend
+		{
+			font-size: 12pt;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		form input[type="text"],
+		form input[type="email"],
+		form input[type="password"],
+		form textarea
+		{
+			-webkit-appearance: none;
+			border-radius: 0.5em;
+			border: solid 1px #E5E5E5;
+			padding-left: 0.5em;
+			padding-right: 0.5em;
+			height: 30px;
+			font-size: 14pt;
+			-moz-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			-webkit-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			-o-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			-ms-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+		}
+
+		form select
+		{
+			border-radius: 0.5em;
+			border: solid 1px #E5E5E5;
+			padding-left: 0.5em;
+			padding-right: 0.5em;
+			height: 30px;
+			font-size: 14pt;
+			-moz-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			-webkit-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			-o-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			-ms-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+		}
+
+			form input[type="text"]:focus,
+			form input[type="email"]:focus,
+			form input[type="password"]:focus,
+			form select:focus,
+			form textarea:focus
+			{
+				background: #fff;
+				border-color: #E5E5E5;
+			}
+
+			form ::-webkit-input-placeholder
+			{
+				color: #555 !important;
+			}
+
+			form :-moz-placeholder
+			{
+				color: #555 !important;
+			}
+
+			form ::-moz-placeholder
+			{
+				color: #555 !important;
+			}
+
+			form :-ms-input-placeholder
+			{
+				color: #555 !important;
+			}
+
+			form ::-moz-focus-inner
+			{
+				border: 0;
+			}
+			
+	/* Table */
+	
+		table
+		{
+			width: 100%;
+		}
+		
+			table.default
+			{
+				width: 100%;
+			}
+
+				table.default tbody tr
+				{
+					border-top: solid 1px #e5e5e5;
+				}
+
+				table.default tbody tr:first-child
+				{
+					border-top: 0;
+				}
+			
+				table.default tbody tr:nth-child(2n+1)
+				{
+					background: #fafafa;
+				}
+				
+				table.default td
+				{
+					padding: 0.5em 1em 0.5em 1em;
+				}
+				
+				table.default th
+				{
+					text-align: left;
+					font-weight: 400;
+					padding: 0.5em 1em 0.5em 1em;
+				}
+			
+				table.default thead
+				{
+					border-bottom: solid 2px #e5e5e5;
+				}
+				
+				table.default tfoot
+				{
+					border-top: solid 2px #e5e5e5;
+				}
+
+	/* Button */
+		
+		input[type="button"],
+		input[type="submit"],
+		input[type="reset"],
+		.button	
+		{
+			position: relative;
+			display: inline-block;
+			background: #df7366;
+			color: #fff;
+			text-align: center;
+			border-radius: 0.5em;
+			text-decoration: none;
+			padding: 0.65em 3em 0.65em 3em;
+			border: 0;
+			cursor: pointer;
+			outline: 0;
+			font-weight: 300;
+			-moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-o-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+			transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		}
+
+			input[type="button"]:hover,
+			input[type="submit"]:hover,
+			input[type="reset"]:hover,
+			.button:hover
+			{
+				color: #fff;
+				background: #ef8376;
+			}
+			
+			input[type="button"].alt,
+			input[type="submit"].alt,
+			input[type="reset"].alt,
+			.button.alt
+			{
+				background: #2B252C;
+			}		
+
+
+				input[type="button"].alt:hover,
+				input[type="submit"].alt:hover,
+				input[type="reset"].alt:hover,
+				.button.alt:hover
+				{
+					background: #3B353C;
+				}		
+
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#header
+	{
+		position: relative;
+		background-image: url('images/header.jpg');
+		background-size: cover;
+		background-position: center center;
+		background-attachment: fixed;
+		color: #fff;
+		text-align: center;
+		padding: 1em 0 0.5em 0;
+		cursor: default;
+	}
+
+		#inner
+		{
+			position: relative;
+			height: 40px;
+			margin: 0;
+			padding: 0px 0px 0px 0px;
+		}
+	
+		#header h1
+		{
+			color: #bcecff;
+			font-size: 2em;
+			line-height: 1em;
+		}
+
+		
+		
+/*********************************************************************************/
+/* Nav                                                                           */
+/*********************************************************************************/
+
+	#nav
+	{
+		position: static;
+		top: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		padding: 0.5em 0 1.5em 0;
+		z-index: 1;
+		overflow: hidden;
+	}
+	
+		#nav > ul
+		{
+			line-height: 0px;
+			position: relative;
+			display: inline-block;
+			margin: 0;
+
+			height: 21px;
+			border-left: solid 1px rgba(192,192,192,0.35);
+			border-right: solid 1px rgba(192,192,192,0.35);
+		}
+		
+			#nav > ul:before,
+			#nav > ul:after
+			{
+				content: '';
+				display: block;
+				width: 300%;
+				position: absolute;
+				top: 50%;
+				margin-top: -2px;
+
+				height: 5px;
+				border-top: solid 1px rgba(192,192,192,0.35);
+				border-bottom: solid 1px rgba(192,192,192,0.35);
+			}
+		
+			#nav > ul:before
+			{
+				left: 100%;
+				margin-left: 1px;
+			}
+		
+			#nav > ul:after
+			{
+				right: 100%;
+				margin-right: 1px;
+			}
+		
+			#nav > ul > li
+			{
+				display: inline-block;
+				margin: -9px 0.5em 0 0.5em;
+				border-radius: 0.5em;
+				padding: 0.85em;
+				border: solid 1px transparent;
+				-moz-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+				-webkit-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+				-o-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+				-ms-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+				transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+			}
+			
+				#nav > ul > li.active
+				{
+					border-color: rgba(192,192,192,0.35);
+				}
+			
+				#nav > ul > li > a,
+				#nav > ul > li > span
+				{
+					display: block;
+					color: inherit;
+					text-decoration: none;
+					border: 0;
+					outline: 0;
+				}
+
+				#nav > ul > li > ul
+				{
+					display: none;
+				}
+
+	.dropotron
+	{
+		background: rgba(255,255,255,0.975);
+		padding: 1em 1.25em 1em 1.25em;
+		line-height: 1em;
+		height: auto;
+		text-align: left;
+		border-radius: 0.5em;
+		box-shadow: 0 0.15em 0.25em 0 rgba(0,0,0,0.25);
+		min-width: 12em;
+		margin-top: -1em;
+	}
+	
+		.dropotron li
+		{
+			border-top: solid 1px rgba(128,128,128,0.2);
+			color: #5b5b5b;
+		}
+		
+			.dropotron li:first-child
+			{
+				border-top: 0;
+			}
+
+			.dropotron li:hover
+			{
+				color: #ef8376;
+			}
+
+			.dropotron li a,
+			.dropotron li span
+			{
+				display: block;
+				border: 0;
+				padding: 0.5em 0 0.5em 0;
+				-moz-transition: color 0.35s ease-in-out;
+				-webkit-transition: color 0.35s ease-in-out;
+				-o-transition: color 0.35s ease-in-out;
+				-ms-transition: color 0.35s ease-in-out;
+				transition: color 0.35s ease-in-out;
+			}
+		
+		.dropotron.level-0
+		{
+			margin-top: 2em;
+			font-size: 0.9em;
+		}
+		
+			.dropotron.level-0:before
+			{
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: -0.7em;
+				margin-left: -0.75em;
+				border-bottom: solid 0.75em rgba(255,255,255,0.975);
+				border-left: solid 0.75em rgba(64,64,64,0);
+				border-right: solid 0.75em rgba(64,64,64,0);
+			}
+
+		
+
+/*********************************************************************************/
+/* Main                                                                          */
+/*********************************************************************************/
+
+	#main
+	{
+		position: relative;
+		text-align: left;
+		margin: auto;
+	}
+
+	#main h1
+	{
+		text-align: center;
+		margin-top: 20px;
+		font-size: 24pt;
+		color: #6f55b7;
+	}
+		
+	
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer
+	{
+		position: relative;
+		overflow: hidden;
+		height: 95px;
+		padding: 1em 0 0.2em 0;
+		background: #2b252c;
+		color: #fff;
+		text-align: left;
+	}
+
+		#footer p
+		{
+			margin-left: 1em;
+			margin-bottom: 0em;
+			font-family: sans-serif;
+			font-size: 12pt;
+			padding-bottom: 5px;
+		}
+
+
+/*********************************************************************************/
+/* Personalizados                                                                */
+/*********************************************************************************/
+
+/* Páginas Login, Cambiar Contraseña, y Recuperar Contraseña */
+
+.contenedor1
+{
+	position: relative;
+	margin: 60px 400px 135px 350px;
+}
+
+.camposenlinea
+{
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.campolabel
+{
+	width: 200px;
+	text-align: right;
+	margin-right: 20px;
+}
+
+.submitcentrado
+{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#passcomentario
+{
+	margin-top: -20px;
+	margin-bottom: 30px;
+	width: 600px;
+}
+
+.dosbotonesinline
+{
+	display: flex;
+	margin-left: 130px;
+	margin-bottom: -20px;
+}
+
+.espacioentrebotones
+{
+	margin-right: 20px;
+}
+
+
+/* Página Gestión de Usuarios, Gestión de Prendas y Gestión de Tipo de Prendas */
+
+.contenedor2
+{
+	position: relative;
+	margin: 30px 180px 10px 180px;
+}
+
+.inputnombres
+{
+	width: 400px;
+}
+
+
+#submitgestionusuario
+{
+	margin-left: 140px;
+}
+
+.botontodos1
+{
+	width: 200px;
+	margin-left: 350px;
+}
+
+
+.tresbotonesinline1
+{
+	display: flex;
+	margin-top: 10px;
+	margin-left: 250px;
+	margin-bottom: 20px;
+}
+
+.listado
+{
+	margin-top: 10px;
+	height: 200px;
+	background-color: #ddd;
+}
+
+/* Página Gestión de Clientes, Gestión de Productos */
+
+.contenedor3
+{
+	position: relative;
+	margin: 30px 110px 10px 110px;
+}
+
+.inputnumeros
+{
+	width: 170px;
+}
+
+.botontodos2
+{
+	width: 200px;
+	margin-left: 430px;
+}
+
+.tresbotonesinline2
+{
+	display: flex;
+	margin-top: 10px;
+	margin-left: 340px;
+	margin-bottom: 20px;
+}
+
+#submitgestionproductos
+{
+	margin-left: 350px;
+}
+
+.tresbotonesinline3
+{
+	display: flex;
+	margin-top: 10px;
+	margin-left: 220px;
+	margin-bottom: 20px;
+}
+
+
+/* Página Gestión de Pedidos */
+
+.contenedor4
+{
+	position: relative;
+	margin: 30px 30px 10px 30px;
+}
+
+.campolabel2
+{
+	width: 100px;
+	text-align: right;
+	margin-left: 25px;
+	margin-right: 10px;
+}
+
+.campolabel3
+{
+	width: 180px;
+	text-align: right;
+	margin-left: 50px;
+	margin-right: 10px;
+}
+
+.inputfechas
+{
+	width: 130px;
+}
+
+.tresbotonesinline4
+{
+	display: flex;
+	margin-top: 10px;
+	margin-left: 690px;
+	margin-bottom: 20px;
+}
+
+#submitproductos
+{
+	margin-left: 200px;	
+}
+
+#submitlogotipos
+{
+	margin-left: 20px;
+	padding-top: 20px;
+}
+
+#submitlogotipos2
+{
+	margin-left: 20px;
+}
+
+#imagenpedidos
+{
+	margin-left: 10px;
+	width: 80px;
+	height: 80px;
+}
+
+#observacionespedido
+{
+	width: 500px;
+	height: 80px;
+}
+
+#submitagregapedido
+{
+	margin-left: 1000px;
+	margin-bottom: 20px;
+}
+
+.campolabel4
+{
+	width: 140px;
+	text-align: right;
+	margin-right: 20px;
+}
+
+.camposenlinea2
+{
+	display: flex;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+
+.campolabel5
+{
+	width: 150px;
+	text-align: right;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+#fieldsetvalores
+{
+	width: 750px;
+}
+
+#submitgrandes
+{
+	font-size: 14pt;
+}
+
+
+/* Página Logotipos */
+.contenedor5
+{
+	position: relative;
+	margin: 60px 400px 135px 400px;
+}
+
+#listadologotipos
+{
+	margin-top: 10px;
+	height: 500px;
+	background-color: #ddd;
+}
+
+#submitlogotipos1
+{
+	width: 180px;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+#submitlogotipos2
+{
+	width: 100px;
+	margin-left: 5px;
+}
+
+.tresbotonesinline5
+{
+	display: flex;
+	margin-top: 10px;
+	margin-left: 40px;
+	margin-bottom: 20px;
+}
+
+
+/* Página Logotipos */
+
+.camposenlinea3
+{
+	display: flex;
+	margin-top: 10px;
+	margin-left: 400px;
+	margin-bottom: 20px;
+}
+
+
+/* Página Consulta de Pedidos */
+
+.fieldsetconsultas
+{
+	margin-right: 30px;
+	padding: 20px 20px 20px 20px;
+}
+
+.espaciadopedidos
+{
+	margin-bottom: 10px;
+}
+
+.campolabel6
+{
+	width: 200px;
+	text-align: right;
+	margin-right: 10px;
+	font-size: 12pt;
+}

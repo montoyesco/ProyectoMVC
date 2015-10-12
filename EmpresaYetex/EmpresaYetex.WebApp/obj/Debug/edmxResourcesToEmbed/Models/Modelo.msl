@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmpresaYetexModelStoreContainer" CdmEntityContainer="EmpresaYetexModelFactory">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="Nit_Cliente" ColumnName="Nit_Cliente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Color">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="Id_Color" ColumnName="Id_Color" />
+          <ScalarProperty Name="Descripcion_Color" ColumnName="Descripcion_Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Costo_Producto">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Costo_Producto">
+        <MappingFragment StoreEntitySet="Costo_Producto">
+          <ScalarProperty Name="Id_Costo_Producto" ColumnName="Id_Costo_Producto" />
+          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+          <ScalarProperty Name="CostoxUnidad" ColumnName="CostoxUnidad" />
+          <ScalarProperty Name="Fecha_Inicial" ColumnName="Fecha_Inicial" />
+          <ScalarProperty Name="Fecha_Final" ColumnName="Fecha_Final" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Pedido">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Detalle_Pedido">
+        <MappingFragment StoreEntitySet="Detalle_Pedido">
+          <ScalarProperty Name="Id_Detalle_Pedido" ColumnName="Id_Detalle_Pedido" />
+          <ScalarProperty Name="Orden_Pedido" ColumnName="Orden_Pedido" />
+          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+          <ScalarProperty Name="Id_Color" ColumnName="Id_Color" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Id_Logotipo" ColumnName="Id_Logotipo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Valor_Venta_Unitario" ColumnName="Valor_Venta_Unitario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Estado">
+        <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+          <ScalarProperty Name="Fecha_Estado" ColumnName="Fecha_Estado" />
+          <ScalarProperty Name="Orden_Pedido" ColumnName="Orden_Pedido" />
+          <ScalarProperty Name="Descripcion_Estado" ColumnName="Descripcion_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forma_Pago">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Forma_Pago">
+        <MappingFragment StoreEntitySet="Forma_Pago">
+          <ScalarProperty Name="Id_Forma_Pago" ColumnName="Id_Forma_Pago" />
+          <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+          <ScalarProperty Name="Orden_Pedido" ColumnName="Orden_Pedido" />
+          <ScalarProperty Name="Descripcion_Forma_Pago" ColumnName="Descripcion_Forma_Pago" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logotipo">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Logotipo">
+        <MappingFragment StoreEntitySet="Logotipo">
+          <ScalarProperty Name="Id_Logotipo" ColumnName="Id_Logotipo" />
+          <ScalarProperty Name="Url_Imagen" ColumnName="Url_Imagen" />
+          <ScalarProperty Name="Fecha_Carga" ColumnName="Fecha_Carga" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Pedido">
+        <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="Orden_Pedido" ColumnName="Orden_Pedido" />
+          <ScalarProperty Name="Fecha_Pedido" ColumnName="Fecha_Pedido" />
+          <ScalarProperty Name="Nit_Cliente" ColumnName="Nit_Cliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prenda">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Prenda">
+        <MappingFragment StoreEntitySet="Prenda">
+          <ScalarProperty Name="Id_Prenda" ColumnName="Id_Prenda" />
+          <ScalarProperty Name="Descripcion_Prenda" ColumnName="Descripcion_Prenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+          <ScalarProperty Name="Id_Prenda" ColumnName="Id_Prenda" />
+          <ScalarProperty Name="Id_Tipo_Prenda" ColumnName="Id_Tipo_Prenda" />
+          <ScalarProperty Name="Talla" ColumnName="Talla" />
+          <ScalarProperty Name="CostoxUnidad" ColumnName="CostoxUnidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Prenda">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Tipo_Prenda">
+        <MappingFragment StoreEntitySet="Tipo_Prenda">
+          <ScalarProperty Name="Id_Tipo_Prenda" ColumnName="Id_Tipo_Prenda" />
+          <ScalarProperty Name="Descripcion_Tipo_Prenda" ColumnName="Descripcion_Tipo_Prenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Usuario">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Tipo_Usuario">
+        <MappingFragment StoreEntitySet="Tipo_Usuario">
+          <ScalarProperty Name="Id_Tipo_Usuario" ColumnName="Id_Tipo_Usuario" />
+          <ScalarProperty Name="Descripcion_Tipo_Usuario" ColumnName="Descripcion_Tipo_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="EmpresaYetexModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id_Tipo_Usuario" ColumnName="Id_Tipo_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

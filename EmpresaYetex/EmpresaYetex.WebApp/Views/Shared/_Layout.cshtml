@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>@ViewBag.Title - YETEX</title>
+
+    <link rel="stylesheet" href="~/Content/skel.css" type="text/css"/>
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css"/>
+    <noscript>
+        <link rel="stylesheet" href="~/Content/style-noscript.css" />
+    </noscript>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.dropotron.min.js"></script>
+    <script src="~/Scripts/jquery.scrolly.min.js"></script>
+    <script src="~/Scripts/jquery.onvisible.min.js"></script>
+    <script src="~/Scripts/skel.min.js"></script>
+    <script src="~/Scripts/skel-layers.min.js"></script>
+    <script src="~/Scripts/init.js"></script>
+</head>
+<body>
+    <div id="header">
+        
+            <div id="inner">
+                <h1>Prendas y Modas Yetex</h1>
+            </div>
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="#">Crear Pedido</a></li>
+                    <li>
+                        <a href="">Gestiones</a>
+                        <ul>
+                            <li><a href="#">Gestión de Prendas</a></li>
+                            <li><a href="#">Gestión de Tipo de Prendas</a></li>
+                            <li><a href="#">Gestión de Productos</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Consultas</a>
+                        <ul>
+                            <li><a href="#">Por Orden de Pedido</a></li>
+                            <li><a href="#">Listado de Pedidos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Usuarios</a></li>
+                    <li><a href="#">Cambiar Contraseña</a></li>
+                    <li><a href="#">Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+
+            @*<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>*@
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        
+    </div>
+
+    <div id="main">
+        @RenderBody()
+    </div>
+
+    <footer id="footer">
+        <p>Desarrollado por Julián Andrés Montoya</p>
+        <p>Estudiante del Instituto Tecnológico Pascual Bravo</p>
+    </footer>
+</body>
+</html>

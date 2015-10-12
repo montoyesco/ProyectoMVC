@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmpresaYetexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Nit_Cliente" />
+    </Key>
+    <Property Name="Nit_Cliente" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Cliente" FromRole="Cliente" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="Id_Color" />
+    </Key>
+    <Property Name="Id_Color" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion_Color" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Detalle_Pedido" Relationship="Self.FK_DetallePedido_Color" FromRole="Color" ToRole="Detalle_Pedido" />
+  </EntityType>
+  <EntityType Name="Costo_Producto">
+    <Key>
+      <PropertyRef Name="Id_Costo_Producto" />
+    </Key>
+    <Property Name="Id_Costo_Producto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+    <Property Name="CostoxUnidad" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Fecha_Inicial" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_Final" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_CostoProducto_Producto" FromRole="Costo_Producto" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Detalle_Pedido">
+    <Key>
+      <PropertyRef Name="Id_Detalle_Pedido" />
+    </Key>
+    <Property Name="Id_Detalle_Pedido" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Orden_Pedido" Type="Int64" Nullable="false" />
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+    <Property Name="Id_Color" Type="Int16" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Id_Logotipo" Type="Int32" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Valor_Venta_Unitario" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Color" Relationship="Self.FK_DetallePedido_Color" FromRole="Detalle_Pedido" ToRole="Color" />
+    <NavigationProperty Name="Logotipo" Relationship="Self.FK_DetallePedido_Logotipo" FromRole="Detalle_Pedido" ToRole="Logotipo" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_DetallePedido_Pedido" FromRole="Detalle_Pedido" ToRole="Pedido" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_DetallePedido_Producto" FromRole="Detalle_Pedido" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="Id_Estado" />
+    </Key>
+    <Property Name="Id_Estado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Estado" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Orden_Pedido" Type="Int64" Nullable="false" />
+    <Property Name="Descripcion_Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_Estado_Pedido" FromRole="Estado" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Forma_Pago">
+    <Key>
+      <PropertyRef Name="Id_Forma_Pago" />
+    </Key>
+    <Property Name="Id_Forma_Pago" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Pago" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Orden_Pedido" Type="Int64" Nullable="false" />
+    <Property Name="Descripcion_Forma_Pago" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Valor" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_FormaPago_Pedido" FromRole="Forma_Pago" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Logotipo">
+    <Key>
+      <PropertyRef Name="Id_Logotipo" />
+    </Key>
+    <Property Name="Id_Logotipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Url_Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Carga" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Detalle_Pedido" Relationship="Self.FK_DetallePedido_Logotipo" FromRole="Logotipo" ToRole="Detalle_Pedido" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Orden_Pedido" />
+    </Key>
+    <Property Name="Orden_Pedido" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Pedido" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Nit_Cliente" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Pedido_Cliente" FromRole="Pedido" ToRole="Cliente" />
+    <NavigationProperty Name="Detalle_Pedido" Relationship="Self.FK_DetallePedido_Pedido" FromRole="Pedido" ToRole="Detalle_Pedido" />
+    <NavigationProperty Name="Estado" Relationship="Self.FK_Estado_Pedido" FromRole="Pedido" ToRole="Estado" />
+    <NavigationProperty Name="Forma_Pago" Relationship="Self.FK_FormaPago_Pedido" FromRole="Pedido" ToRole="Forma_Pago" />
+  </EntityType>
+  <EntityType Name="Prenda">
+    <Key>
+      <PropertyRef Name="Id_Prenda" />
+    </Key>
+    <Property Name="Id_Prenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion_Prenda" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_Prenda" FromRole="Prenda" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id_Producto" />
+    </Key>
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Prenda" Type="Int32" Nullable="false" />
+    <Property Name="Id_Tipo_Prenda" Type="Int32" Nullable="false" />
+    <Property Name="Talla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CostoxUnidad" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Costo_Producto" Relationship="Self.FK_CostoProducto_Producto" FromRole="Producto" ToRole="Costo_Producto" />
+    <NavigationProperty Name="Detalle_Pedido" Relationship="Self.FK_DetallePedido_Producto" FromRole="Producto" ToRole="Detalle_Pedido" />
+    <NavigationProperty Name="Prenda" Relationship="Self.FK_Producto_Prenda" FromRole="Producto" ToRole="Prenda" />
+    <NavigationProperty Name="Tipo_Prenda" Relationship="Self.FK_Producto_TipoPrenda" FromRole="Producto" ToRole="Tipo_Prenda" />
+  </EntityType>
+  <EntityType Name="Tipo_Prenda">
+    <Key>
+      <PropertyRef Name="Id_Tipo_Prenda" />
+    </Key>
+    <Property Name="Id_Tipo_Prenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion_Tipo_Prenda" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_TipoPrenda" FromRole="Tipo_Prenda" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Tipo_Usuario">
+    <Key>
+      <PropertyRef Name="Id_Tipo_Usuario" />
+    </Key>
+    <Property Name="Id_Tipo_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion_Tipo_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="Tipo_Usuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Tipo_Usuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tipo_Usuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="Usuario" ToRole="Tipo_Usuario" />
+  </EntityType>
+  <Association Name="FK_Pedido_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Nit_Cliente" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="Nit_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallePedido_Color">
+    <End Role="Color" Type="Self.Color" Multiplicity="1" />
+    <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="Id_Color" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido">
+        <PropertyRef Name="Id_Color" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CostoProducto_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Costo_Producto" Type="Self.Costo_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id_Producto" />
+      </Principal>
+      <Dependent Role="Costo_Producto">
+        <PropertyRef Name="Id_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallePedido_Logotipo">
+    <End Role="Logotipo" Type="Self.Logotipo" Multiplicity="1" />
+    <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logotipo">
+        <PropertyRef Name="Id_Logotipo" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido">
+        <PropertyRef Name="Id_Logotipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallePedido_Pedido">
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+    <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="Orden_Pedido" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido">
+        <PropertyRef Name="Orden_Pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallePedido_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Detalle_Pedido" Type="Self.Detalle_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id_Producto" />
+      </Principal>
+      <Dependent Role="Detalle_Pedido">
+        <PropertyRef Name="Id_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_Pedido">
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+    <End Role="Estado" Type="Self.Estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="Orden_Pedido" />
+      </Principal>
+      <Dependent Role="Estado">
+        <PropertyRef Name="Orden_Pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormaPago_Pedido">
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+    <End Role="Forma_Pago" Type="Self.Forma_Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="Orden_Pedido" />
+      </Principal>
+      <Dependent Role="Forma_Pago">
+        <PropertyRef Name="Orden_Pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Prenda">
+    <End Role="Prenda" Type="Self.Prenda" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prenda">
+        <PropertyRef Name="Id_Prenda" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Id_Prenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_TipoPrenda">
+    <End Role="Tipo_Prenda" Type="Self.Tipo_Prenda" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Prenda">
+        <PropertyRef Name="Id_Tipo_Prenda" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Id_Tipo_Prenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_TipoUsuario">
+    <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Usuario">
+        <PropertyRef Name="Id_Tipo_Usuario" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Id_Tipo_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmpresaYetexModelFactory" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Color" EntityType="Self.Color" />
+    <EntitySet Name="Costo_Producto" EntityType="Self.Costo_Producto" />
+    <EntitySet Name="Detalle_Pedido" EntityType="Self.Detalle_Pedido" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" />
+    <EntitySet Name="Forma_Pago" EntityType="Self.Forma_Pago" />
+    <EntitySet Name="Logotipo" EntityType="Self.Logotipo" />
+    <EntitySet Name="Pedido" EntityType="Self.Pedido" />
+    <EntitySet Name="Prenda" EntityType="Self.Prenda" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
+    <EntitySet Name="Tipo_Prenda" EntityType="Self.Tipo_Prenda" />
+    <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Pedido_Cliente" Association="Self.FK_Pedido_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallePedido_Color" Association="Self.FK_DetallePedido_Color">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CostoProducto_Producto" Association="Self.FK_CostoProducto_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Costo_Producto" EntitySet="Costo_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallePedido_Logotipo" Association="Self.FK_DetallePedido_Logotipo">
+      <End Role="Logotipo" EntitySet="Logotipo" />
+      <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallePedido_Pedido" Association="Self.FK_DetallePedido_Pedido">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallePedido_Producto" Association="Self.FK_DetallePedido_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Detalle_Pedido" EntitySet="Detalle_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_Pedido" Association="Self.FK_Estado_Pedido">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="Estado" EntitySet="Estado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormaPago_Pedido" Association="Self.FK_FormaPago_Pedido">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="Forma_Pago" EntitySet="Forma_Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Prenda" Association="Self.FK_Producto_Prenda">
+      <End Role="Prenda" EntitySet="Prenda" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_TipoPrenda" Association="Self.FK_Producto_TipoPrenda">
+      <End Role="Tipo_Prenda" EntitySet="Tipo_Prenda" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_TipoUsuario" Association="Self.FK_Usuario_TipoUsuario">
+      <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
