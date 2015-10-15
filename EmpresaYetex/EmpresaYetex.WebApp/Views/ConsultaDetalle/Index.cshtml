@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Consulta Detalle del Pedido";
+}
+
+<div><h1>Consulta Detalle del Pedido</h1></div>
+<div class="contenedor4">
+    <div>
+        <form>
+            <div class="camposenlinea">
+                <div class="campolabel"><label for="txtNit">Nit del cliente</label></div>
+                <div><input class="inputnumeros" type="text" name="txtNit" disabled></input></div>
+                <div class="campolabel"><label for="txtNombre">Nombre del cliente</label></div>
+                <div><input class="inputnombres" type="text" name="txtNombre" disabled></input></div>
+            </div>
+            <fieldset id="fieldsetvalores">
+                <legend>Consultar por fecha</legend>
+                <br>
+                <div class="camposenlinea">
+                    <div class="campolabel2"><label for="txtDesde">Desde:</label></div>
+                    <div><input class="inputfechas" type="date" name="txtDesde"></input></div>
+                    <div class="campolabel2"><label for="txtHasta">Hasta:</label></div>
+                    <div><input class="inputfechas" type="date" name="txtHasta"></input></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="listado"></div>
+    <div class="camposenlinea3">
+        <div class="espacioentrebotones"><input type="submit" value="Anexar selección al pedido actual"></input></div>
+        <div><input type="submit" value="Cancelar"></input></div>
+    </div>
+</div>

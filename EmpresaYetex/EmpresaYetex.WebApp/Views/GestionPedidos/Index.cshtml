@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewBag.Title = "Gestión de Pedidos";
+}
+
+<div><h1>Gestión de Pedidos</h1></div>
+<div class="contenedor4">
+    <div>
+        <form>
+            <fieldset>
+                <legend>Datos del cliente</legend>
+                <br>
+                <div class="camposenlinea">
+                    <div class="campolabel2"><label for="txtCliente">Cliente</label></div>
+                    <div>
+                        <select class="inputnombres" name="">
+                            <option value="">Colegio El Bueno Consejo</option>
+                            <option value="">Escuela María Auxiliadora</option>
+                            <option value="">Textiles La Perfección</option>
+                        </select>
+                    </div>
+                    <div id="submitgestionusuario"><input type="submit" value="Ir a clientes"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel2"><label for="txtNit">Nit</label></div>
+                    <div><input class="inputnumeros" type="text" name="txtNit" disabled></input></div>
+                    <div class="campolabel2"><label for="txtContacto">Contacto</label></div>
+                    <div><input class="inputnombres" type="text" name="txtContacto" disabled></input></div>
+                    <div class="campolabel3"><label for="txtFechaPedido">Fecha del pedido</label></div>
+                    <div><input class="inputfechas" type="date" name="txtFechaPedido"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel2"><label for="txtDireccion">Dirección</label></div>
+                    <div><input class="inputnombres" type="text" name="txtDireccion" disabled></input></div>
+                    <div class="campolabel2"><label for="txtTelefono">Teléfono</label></div>
+                    <div><input class="inputnumeros" type="text" name="txtTelefono" disabled></input></div>
+                    <div class="campolabel3"><label for="txtPedido">Pedido N.</label></div>
+                    <div><input class="inputnumeros" type="text" name="txtPedido" disabled></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel2"><label for="txtCiudad">Ciudad</label></div>
+                    <div><input type="text" name="txtCiudad" disabled></input></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    Detalle del pedido:
+    <div class="listado"></div>
+    <div class="tresbotonesinline4">
+        <div class="espacioentrebotones"><input type="submit" value="Editar"></input></div>
+        <div class="espacioentrebotones"><input type="submit" value="Eliminar"></input></div>
+        <div><input type="submit" value="Consultar historial de pedidos del cliente"></input></div>
+    </div>
+    <div>
+        <form>
+            <fieldset>
+                <legend>Agregar al pedido</legend>
+                <br>
+                <div class="camposenlinea">
+                    <div class="campolabel2"><label for="txtPrenda">Prenda</label></div>
+                    <div>
+                        <select name="">
+                            <option value="">Camisa</option>
+                            <option value="">Sudadera</option>
+                            <option value="">Blue Jean</option>
+                        </select>
+                    </div>
+                    <div class="campolabel3"><label for="txtTipoPrenda">Tipo de prenda</label></div>
+                    <div>
+                        <select name="">
+                            <option value="">Polo</option>
+                            <option value="">Perilla</option>
+                            <option value="">Perchada</option>
+                        </select>
+                    </div>
+                    <div id="submitproductos"><input type="submit" value="Ir a productos"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel2"><label for="txtTalla">Talla</label></div>
+                    <div>
+                        <select name="">
+                            <option value="">S</option>
+                            <option value="">M</option>
+                            <option value="">XL</option>
+                        </select>
+                    </div>
+                    <div class="campolabel2"><label for="txtColor">Color</label></div>
+                    <div>
+                        <select name="">
+                            <option value="">Rojo</option>
+                            <option value="">Azul</option>
+                            <option value="">Amarillo</option>
+                        </select>
+                    </div>
+                    <div class="campolabel2"><label for="txtCantidad">Cantidad</label></div>
+                    <div><input class="inputnumeros" type="text" name="txtCantidad"></input></div>
+                    <div class="campolabel"><label for="txtVenta">Valor venta unitario $</label></div>
+                    <div><input class="inputnumeros" type="text" name="txtVenta"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div id="submitlogotipos"><input type="submit" value="Elegir logotipo (opcional)"></input></div>
+                    <div><img id="imagenpedidos" src="D:\Logotipos_Yetex\Logotipo1.jpg" alt="logotipo"></div>
+                    <div>
+                        <div id="submitlogotipos2"><input type="submit" value="Vista previa logotipo"></input></div>
+                        <br>
+                        <div id="submitlogotipos2"><input type="submit" value="Borrar logotipo"></input></div>
+                    </div>
+                    <div class="espacioentrebotones"></div>
+                    <div class="espacioentrebotones"></div>
+                    <div class="espacioentrebotones"></div>
+                    <div class="campolabel"><label for="txtObservaciones">Observaciones</label></div>
+                    <div><input id="observacionespedido" type="text" name="txtObservaciones"></input></div>
+                </div>
+                <div id="submitagregapedido"><input type="submit" value="Agregar al pedido actual"></input></div>
+            </fieldset>
+            <br>
+            <div class="camposenlinea">
+                <div>
+                    <fieldset id="fieldsetvalores">
+                        <legend>Valores</legend>
+                        <br>
+                        <div class="camposenlinea">
+                            <div>
+                                <div class="camposenlinea">
+                                    <div class="campolabel4"><label for="txtCostoTotal">Costo Total</label></div>
+                                    <div><input class="inputnumeros" type="text" name="txtCostoTotal" disabled></input></div>
+                                </div>
+                                <div class="camposenlinea">
+                                    <div class="campolabel4"><label for="txtVentaTotal">Venta Total</label></div>
+                                    <div><input class="inputnumeros" type="text" name="txtVentaTotal" disabled></input></div>
+                                </div>
+                                <div class="camposenlinea">
+                                    <div class="campolabel4"><label for="txtUtilidadTotal">Utilidad Total</label></div>
+                                    <div><input class="inputnumeros" type="text" name="txtUtilidadTotal" disabled></input></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="camposenlinea2">
+                                    <div class="espacioentrebotones"><input type="checkbox" name="PagoEfectivo" value="Efectivo">Pago en Efectivo</input></div>
+                                    <div><input class="inputnumeros" type="text" name="txtPagoEfectivo"></input></div>
+                                </div>
+                                <div class="camposenlinea2">
+                                    <div class="espacioentrebotones"><input type="checkbox" name="PagoCheque" value="Cheque">Pago en Cheque</input></div>
+                                    <div><input class="inputnumeros" type="text" name="txtPagoCheque"></input></div>
+                                </div>
+                                <div class="camposenlinea2">
+                                    <div class="espacioentrebotones"><input type="checkbox" name="PagoTarjeta" value="Tarjeta de crédito">Pago con Tarjeta</input></div>
+                                    <div><input class="inputnumeros" type="text" name="txtPagoTarjeta"></input></div>
+                                </div>
+                                <div class="camposenlinea2">
+                                    <div class="campolabel5"><label for="txtSaldoPendiente">Saldo Pendiente</label></div>
+                                    <div><input class="inputnumeros" type="text" name="txtSaldoPendiente" disabled></input></div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <div class="camposenlinea">
+                        <div class="campolabel"><label for="txtEstado">Estado del Pedido</label></div>
+                        <div>
+                            <select name="">
+                                <option value="">En espera</option>
+                                <option value="">En proceso</option>
+                                <option value="">Terminado</option>
+                                <option value="">Entregado</option>
+                                <option value="">Suspendido</option>
+                                <option value="">Cancelado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="camposenlinea2">
+                        <div class="espacioentrebotones"><input id="submitgrandes" type="submit" value="Guardar Pedido"></input></div>
+                        <div><input id="submitgrandes" type="submit" value="Cancelar"></input></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

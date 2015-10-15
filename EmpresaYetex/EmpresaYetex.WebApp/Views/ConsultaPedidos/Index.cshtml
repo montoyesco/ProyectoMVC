@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Consulta de Pedidos";
+}
+
+<div><h1>Consulta de Pedidos</h1></div>
+<div class="contenedor4">
+    <div>
+        <form>
+            <div class="camposenlinea">
+                <div>
+                    <fieldset class="fieldsetconsultas">
+                        <legend>Filtro por cliente</legend>
+                        <div class="camposenlinea">
+                            <div class="campolabel2"><label for="txtCliente">Cliente</label></div>
+                            <div>
+                                <select class="inputnombres" name="">
+                                    <option value="">Colegio El Bueno Consejo</option>
+                                    <option value="">Escuela María Auxiliadora</option>
+                                    <option value="">Textiles La Perfección</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="submitgestionusuario"><input type="submit" value="Seleccionar Clientes..."></input></div>
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset class="fieldsetconsultas">
+                        <legend>Filtro por fechas</legend>
+                        <div><input type="radio" name="todasFechas" value="">Todas las fechas</input></div>
+                        <br>
+                        <div class="camposenlinea2">
+                            <div class="campolabel2"><label for="txtDesde">Desde:</label></div>
+                            <div><input class="inputfechas" type="date" name="txtDesde"></input></div>
+                            <div class="campolabel2"><label for="txtHasta">Hasta:</label></div>
+                            <div><input class="inputfechas" type="date" name="txtHasta"></input></div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="camposenlinea">
+                <div>
+                    <fieldset class="fieldsetconsultas">
+                        <legend>Filtro por estados</legend>
+                        <div><input type="radio" name="todosEstados" value="">Todas los estados</input></div>
+                        <br>
+                        <div class="camposenlinea">
+                            <div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="Entregado" value="Entregado">Entregado</input></div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="Terminado" value="Terminado">Terminado</input></div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="En Proceso" value="En Proceso">En proceso</input></div>
+                            </div>
+                            <div class="espacioentrebotones"></div>
+                            <div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="En espera" value="En espera">En espera</input></div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="Suspendido" value="Suspendido">Suspendido</input></div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="Cancelado" value="Cancelado">Cancelado</input></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset class="fieldsetconsultas">
+                        <legend>Filtro por forma de pago</legend>
+                        <div><input type="radio" name="todosEstados" value="">Todas las formas de pago</input></div>
+                        <br>
+                        <div class="camposenlinea">
+                            <div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="PagoEfectivo" value="Efectivo">Pago en Efectivo</input></div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="PagoCheque" value="Cheque">Pago en Cheque</input></div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="PagoTarjeta" value="Tarjeta de crédito">Pago con Tarjeta</input></div>
+                            </div>
+                            <div class="espacioentrebotones"></div>
+                            <div>
+                                <div class="espaciadopedidos"><input type="checkbox" name="SaldoPendiente" value="Saldo Pendiente">Saldo pendiente</input></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div><input id="submitgrandes" type="submit" value="Generar consulta"></input></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="listado"></div>
+    <br>
+    <div class="camposenlinea">
+        <div class="campolabel6"><label for="txtCostoTotal">Total costo:</label></div>
+        <div><input class="inputnumeros" type="text" name="txtCostoTotal" disabled></input></div>
+        <div class="campolabel6"><label for="txtVentaTotal">Total venta:</label></div>
+        <div><input class="inputnumeros" type="text" name="txtVentaTotal" disabled></input></div>
+        <div class="campolabel6"><label for="txtUtilidadTotal">Total utilidad:</label></div>
+        <div><input class="inputnumeros" type="text" name="txtUtilidadTotal" disabled></input></div>
+        <div class="campolabel6"><label for="txtPendienteTotal">Total pendiente por cancelar:</label></div>
+        <div><input class="inputnumeros" type="text" name="txtPendienteTotal" disabled></input></div>
+    </div>
+    <div class="tresbotonesinline2">
+        <div class="espacioentrebotones"><input type="submit" value="Abrir orden de pedido"></input></div>
+        <div class="espacioentrebotones"><input type="submit" value="Exportar a CSV"></input></div>
+        <div class="espacioentrebotones"><input type="submit" value="Imprimir"></input></div>
+        <div><input type="submit" value="Cancelar"></input></div>
+    </div>
+</div>

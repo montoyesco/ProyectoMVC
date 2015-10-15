@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Gestión de Usuarios";
+}
+
+<div><h1>Gestión de Usuarios</h1></div>
+<div class="contenedor2">
+    <div>
+        <form>
+            <fieldset>
+                <legend>Datos del usuario</legend>
+                <br>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtUsuario">Nombre del Usuario</label></div>
+                    <div><input class="inputnombres" type="text" name="txtUsuario"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtLogin">Login</label></div>
+                    <div><input type="text" name="txtLogin"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtPassword">Contraseña</label></div>
+                    <div><input type="text" name="txtPassword"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtEmail">Email</label></div>
+                    <div><input class="inputnombres" type="email" name="txtEmail"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtTipoUsuario">Tipo de Usuario</label></div>
+                    <div>
+                        <select name="">
+                            <option value="">Usuario</option>
+                            <option value="">Administrador</option>
+                        </select>
+                    </div>
+                    <div id="submitgestionusuario"><input type="submit" value="Agregar"></input></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    <div><div class="botontodos1"><input type="submit" value="Consultar todos los usuarios"></input></div></div>
+    <div class="listado"></div>
+    <div class="tresbotonesinline1">
+        <div class="espacioentrebotones"><input type="submit" value="Guardar"></input></div>
+        <div class="espacioentrebotones"><input type="submit" value="Eliminar"></input></div>
+        <div><input type="submit" value="Cancelar"></input></div>
+    </div>
+</div>

@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace EmpresaYetex.WebApp.Controllers
 {
-    public class DetallePedidoController : Controller
+    public class RecuperarContrasenaController : Controller
     {
-        // GET: DetallePedido
-        EmpresaYetexModelFactory bd = new EmpresaYetexModelFactory();
-
+        private EmpresaYetexModelFactory bd = new EmpresaYetexModelFactory();
+        
+        // GET: RecuperarContrasena
         public ActionResult Index()
         {
             return View();

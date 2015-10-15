@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace EmpresaYetex.WebApp.Controllers
 {
-    public class EstadoController : Controller
+    public class CambiarContrasenaController : Controller
     {
-        // GET: Estado
         private EmpresaYetexModelFactory bd = new EmpresaYetexModelFactory();
-
+        
+        // GET: CambiarContrasena
         public ActionResult Index()
         {
             return View();

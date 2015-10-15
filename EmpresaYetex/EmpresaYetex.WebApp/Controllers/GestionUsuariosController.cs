@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace EmpresaYetex.WebApp.Controllers
 {
-    public class LogotipoController : Controller
+    public class GestionUsuariosController : Controller
     {
-        // GET: Logotipo
         private EmpresaYetexModelFactory bd = new EmpresaYetexModelFactory();
-
+        
+        // GET: GestionUsuarios
         public ActionResult Index()
         {
             return View();

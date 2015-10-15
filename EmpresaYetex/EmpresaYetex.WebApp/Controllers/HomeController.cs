@@ -9,9 +9,8 @@ namespace EmpresaYetex.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-
         private EmpresaYetexModelFactory bd = new EmpresaYetexModelFactory();
-
+        
         // GET: Home
         public ActionResult Index()
         {
@@ -28,10 +27,11 @@ namespace EmpresaYetex.WebApp.Controllers
             var login = bd.Usuario.ToList().Where(u => u.Login.Equals(usuario) && u.Password.Equals(clave));
             if (login.Count() > 0)
             {
-                return RedirectToAction("index","Pedido");
+                return RedirectToAction("Index", "Pedido");
             }
+
             TempData["showMessage"] = "Usuario o clave invalida";
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
         }
     }
 }

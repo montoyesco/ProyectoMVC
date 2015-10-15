@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{22B226E1-2824-4ABA-9923-D9B9184E332F}</ProjectGuid>
+    <ProjectGuid>{F90335F3-0214-4B78-9E06-7640CF1A59A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EmpresaYetex.Tests</RootNamespace>
@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EmpresaYetex.WebApp\EmpresaYetex.WebApp.csproj">
-      <Project>{9BEA8C21-ADDC-4AC4-85A5-8910C36885E6}</Project>
+      <Project>{F4AB394D-F2F4-4956-849B-BE77C48F4462}</Project>
       <Name>EmpresaYetex.WebApp</Name>
     </ProjectReference>
   </ItemGroup>

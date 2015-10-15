@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Gestión de Productos";
+}
+
+<div><h1>Gestión de Productos</h1></div>
+<div class="contenedor2">
+    <div>
+        <form>
+            <fieldset>
+                <legend>Datos del producto a ofrecer</legend>
+                <br>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtPrenda">Prenda</label></div>
+                    <div>
+                        <select name="">
+                            <option value="">Camisa</option>
+                            <option value="">Sudadera</option>
+                            <option value="">Blue Jean</option>
+                        </select>
+                    </div>
+                    <div id="submitgestionusuario"><input type="submit" value="Crear prenda"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtTipoPrenda">Tipo de Prenda</label></div>
+                    <div>
+                        <select name="">
+                            <option value="">Polo</option>
+                            <option value="">Perilla</option>
+                            <option value="">Perchada</option>
+                        </select>
+                    </div>
+                    <div id="submitgestionusuario"><input type="submit" value="Crear tipo de prenda"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtTipoPrenda">Talla</label></div>
+                    <div>
+                        <select name="">
+                            <option value="">S</option>
+                            <option value="">M</option>
+                            <option value="">XL</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtCosto">Costo por Unidad: $</label></div>
+                    <div><input class="inputnumeros" type="text" name="txtCosto"></input></div>
+                    <div id="submitgestionproductos"><input type="submit" value="Agregar"></input></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    <div><div class="botontodos1"><input type="submit" value="Consultar todos los productos"></input></div></div>
+    <div class="listado"></div>
+    <div class="tresbotonesinline3">
+        <div class="espacioentrebotones"><input type="submit" value="Actualizar Costo por Unidad"></input></div>
+        <div class="espacioentrebotones"><input type="submit" value="Eliminar"></input></div>
+        <div><input type="submit" value="Cancelar"></input></div>
+    </div>
+</div>

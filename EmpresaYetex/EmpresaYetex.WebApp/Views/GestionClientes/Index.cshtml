@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Gestión de Clientes";
+}
+
+<div><h1>Gestión de Usuarios</h1></div>
+<div class="contenedor3">
+    <div>
+        <form>
+            <fieldset>
+                <legend>Datos del cliente</legend>
+                <br>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtNit">Nit Cliente</label></div>
+                    <div><input type="text" name="txtNit"></input></div>
+                    <div class="campolabel"><label for="txtCliente">Nombre Cliente</label></div>
+                    <div><input class="inputnombres" type="text" name="txtCliente"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtContacto">Contacto</label></div>
+                    <div><input type="text" name="txtContacto"></input></div>
+                    <div class="campolabel"><label for="txtDireccion">Dirección</label></div>
+                    <div><input class="inputnombres" type="text" name="txtDireccion"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtTelefono">Teléfono</label></div>
+                    <div><input type="text" name="txtTelefono"></input></div>
+                    <div class="campolabel"><label for="txtCiudad">Ciudad</label></div>
+                    <div><input class="inputnumeros" type="text" name="txtCiudad"></input></div>
+                </div>
+                <div class="camposenlinea">
+                    <div class="campolabel"><label for="txtEmail">Email</label></div>
+                    <div><input class="inputnombres" type="email" name="txtEmail"></input></div>
+                    <div id="submitgestionusuario"><input type="submit" value="Agregar"></input></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    <div><div class="botontodos2"><input type="submit" value="Consultar todos los clientes"></input></div></div>
+    <div class="listado"></div>
+    <div class="tresbotonesinline2">
+        <div class="espacioentrebotones"><input type="submit" value="Guardar"></input></div>
+        <div class="espacioentrebotones"><input type="submit" value="Eliminar"></input></div>
+        <div><input type="submit" value="Cancelar"></input></div>
+    </div>
+</div>

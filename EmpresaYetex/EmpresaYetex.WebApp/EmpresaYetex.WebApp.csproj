@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9BEA8C21-ADDC-4AC4-85A5-8910C36885E6}</ProjectGuid>
+    <ProjectGuid>{F4AB394D-F2F4-4956-849B-BE77C48F4462}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -102,14 +102,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\arrow.svg" />
+    <Content Include="Content\images\header.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\skel.css" />
     <Content Include="Content\style-noscript.css" />
     <Content Include="Content\style.css" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\images\header.jpg" />
     <Content Include="Models\Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -122,11 +122,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\init.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -139,22 +134,24 @@
     <Content Include="Scripts\skel-layers.min.js" />
     <Content Include="Scripts\skel.min.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\CambiarContrasena\Index.cshtml" />
+    <Content Include="Views\ConsultaDetalle\Index.cshtml" />
+    <Content Include="Views\ConsultaPedidos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Controllers\CostoProductoController.cs" />
-    <Compile Include="Controllers\DetallePedidoController.cs" />
-    <Compile Include="Controllers\EstadoController.cs" />
-    <Compile Include="Controllers\FormaPagoController.cs" />
+    <Compile Include="Controllers\CambiarContrasenaController.cs" />
+    <Compile Include="Controllers\ConsultaDetalleController.cs" />
+    <Compile Include="Controllers\ConsultaPedidosController.cs" />
+    <Compile Include="Controllers\GestionClientesController.cs" />
+    <Compile Include="Controllers\GestionPedidosController.cs" />
+    <Compile Include="Controllers\GestionPrendasController.cs" />
+    <Compile Include="Controllers\GestionProductosController.cs" />
+    <Compile Include="Controllers\GestionTipoPrendasController.cs" />
+    <Compile Include="Controllers\GestionUsuariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LogotipoController.cs" />
-    <Compile Include="Controllers\PedidoController.cs" />
-    <Compile Include="Controllers\PrendaController.cs" />
-    <Compile Include="Controllers\ProductoController.cs" />
-    <Compile Include="Controllers\TipoPrendaController.cs" />
-    <Compile Include="Controllers\TipoUsuarioController.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\LogotiposController.cs" />
+    <Compile Include="Controllers\RecuperarContrasenaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,7 +228,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Pedido\Index.cshtml" />
+    <Content Include="Views\GestionClientes\Index.cshtml" />
+    <Content Include="Views\GestionPedidos\Index.cshtml" />
+    <Content Include="Views\GestionPrendas\Index.cshtml" />
+    <Content Include="Views\GestionProductos\Index.cshtml" />
+    <Content Include="Views\GestionTipoPrendas\Index.cshtml" />
+    <Content Include="Views\GestionUsuarios\Index.cshtml" />
+    <Content Include="Views\RecuperarContrasena\Index.cshtml" />
+    <Content Include="Views\Logotipos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -242,17 +246,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\ie\" />
-    <Folder Include="Views\Cliente\" />
-    <Folder Include="Views\CostoProducto\" />
-    <Folder Include="Views\DetallePedido\" />
-    <Folder Include="Views\Estado\" />
-    <Folder Include="Views\FormaPago\" />
-    <Folder Include="Views\Logotipo\" />
-    <Folder Include="Views\Prenda\" />
-    <Folder Include="Views\Producto\" />
-    <Folder Include="Views\TipoPrenda\" />
-    <Folder Include="Views\TipoUsuario\" />
-    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -270,9 +263,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49681</DevelopmentServerPort>
+          <DevelopmentServerPort>55167</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49681/</IISUrl>
+          <IISUrl>http://localhost:55167/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
